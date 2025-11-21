@@ -11,16 +11,16 @@ const NavBar = () => {
         <nav>
           <ul>
             <li>
-              <NavLink to="/cuerdas">Guitarras y bajos</NavLink>
+              <NavLink to="/categorias/cuerdas">Guitarras y bajos</NavLink>
             </li>
             <li>
-              <NavLink to="/teclas">Instrumentos de teclas</NavLink>
+              <NavLink to="/categorias/teclas">Instrumentos de teclas</NavLink>
             </li>
             <li>
-              <NavLink to="/percusion">Bateria y persecucion</NavLink>
+              <NavLink to="/categorias/percusion">Bateria y persecucion</NavLink>
             </li>
             <li>
-              <NavLink to="/viento">Vientos</NavLink>
+              <NavLink to="/categorias/viento">Vientos</NavLink>
             </li>
           </ul>
         </nav>

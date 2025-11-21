@@ -1,18 +1,23 @@
 const productos=[
-    {id: 1, nombre: "Charango", precio: 400000, img: "/img/charango.png"},
-    {id: 2, nombre: "Armnonica", precio: 120000, img: "/img/armonica.png"},
-    {id: 3, nombre: "Guitarra acustica", precio: 700000, img: "/img/acustica.png"},
-    {id: 4, nombre: "Bajo", precio: 900000, img: "/img/bajo.png"},
-    {id: 5, nombre: "Bateria", precio: 2500000, img: "/img/bateria.png"},
-    {id: 6, nombre: "Ukelele", precio: 300000, img: "/img/ukelele.png"},
-    {id: 7, nombre: "Guitarra Electrica", precio: 1500000, img: "/img/gibson.png"},
-    {id: 8, nombre: "Violim", precio: 850000, img: "/img/violin.png"},
+    {id: 1, nombre: "Charango", precio: 400000, img: "/img/charango.png", categoria: "cuerdas"},
+    {id: 2, nombre: "Armonica", precio: 120000, img: "/img/armonica.png", categoria: "viento"},
+    {id: 3, nombre: "Guitarra acustica", precio: 700000, img: "/img/acustica.png", categoria: "cuerdas"},
+    {id: 4, nombre: "Bajo", precio: 900000, img: "/img/bajo.png", categoria: "cuerdas"},
+    {id: 5, nombre: "Bateria", precio: 2500000, img: "/img/bateria.png", categoria: "percusion"},
+    {id: 6, nombre: "Ukelele", precio: 300000, img: "/img/ukelele.png", categoria: "cuerdas"},
+    {id: 7, nombre: "Guitarra Electrica", precio: 1500000, img: "/img/gibson.png", categoria: "cuerdas"},
+    {id: 8, nombre: "Violin", precio: 850000, img: "/img/violin.png", categoria: "cuerdas"},
 ]
 
-export const getProductos = () => {
+
+export const getProductos = (idCategoria) => {
     return new Promise((resolve, reject) => {
         setTimeout(()=>{
-            resolve(productos)
+            if(idCategoria){
+                resolve(productos.filter(item => item.categoria === idCategoria))
+            }else{
+                resolve(productos)
+            }
         }, 2000)
     })
 }
@@ -20,7 +25,7 @@ export const getProductos = () => {
 export const getUnProducto = (id) => {
     return new Promise(resolve => {
         setTimeout(()=>{
-            const producto = productos.find(item => item.id === id)
+            const producto = productos.find(item => item.id == id)
             resolve (producto)
         },2000)
     })

@@ -3,6 +3,7 @@ import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailCon
 import ItemListContainer from './componentes/ItemListContainer/ItemListContainer'
 import NavBar from './componentes/NavBar/NavBar'
 import {Routes, Route} from 'react-router-dom'
+import NotFound from './componentes/NotFound/NotFound'
 
 function App() {
 
@@ -17,7 +18,9 @@ function App() {
 
         <Route path="/categorias/:idCategoria" element= {<ItemListContainer/>} />
 
-        <Route path="/detalle" element= {<ItemDetailContainer/>} />
+        <Route path="/detalle/:idDetalle" element= {<ItemDetailContainer/>} />
+
+         <Route path="*" element={<NotFound />} />
 
       </Routes>
 
