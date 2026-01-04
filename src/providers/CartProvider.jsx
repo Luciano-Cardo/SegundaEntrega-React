@@ -7,6 +7,16 @@ const {Provider} = miContexto
 const CartProvider = ({children}) => {
 
   const[cantidad,setCantidad] = useState(0)
+  const[items, setItems] = useState([])
+
+  function agregarItem (){
+    const copia = [...items]
+
+    const nuevoItem = {}
+    copia.push(nuevoItem)
+
+    setItems(copia)
+  }
   
   const valorDelContexto = {
     cantidad : cantidad,
