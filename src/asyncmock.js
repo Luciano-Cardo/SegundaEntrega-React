@@ -1,3 +1,6 @@
+import {collection, getDocs} from "firebase/firestore"
+import { db } from "./firebaseConfig"
+
 const productos=[
     {id: 1, nombre: "Charango", precio: 400000, img: "/img/charango.png", categoria: "cuerdas"},
     {id: 2, nombre: "Armonica", precio: 120000, img: "/img/armonica.png", categoria: "viento"},
@@ -11,15 +14,23 @@ const productos=[
 
 
 export const getProductos = (idCategoria) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(()=>{
-            if(idCategoria){
-                resolve(productos.filter(item => item.categoria === idCategoria))
-            }else{
-                resolve(productos)
-            }
-        }, 2000)
-    })
+
+    const productosCollection = collection(db, "productos")
+
+    return getDocs(productosCollection)
+        .then((respuesta)=>{
+          const productosConFormato = []
+
+          respuesta.docs.forEach(doc=>{
+            productosConFormato.push(doc.data())
+          })
+
+          return productosConFormato
+        })
+        .catch((error)=>{
+          console.log(error)
+        })
+
 }
 
 export const getUnProducto = (id) => {

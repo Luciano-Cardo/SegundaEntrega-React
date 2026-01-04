@@ -1,0 +1,26 @@
+button{
+    border: none;
+    padding: 8px;
+    font-weight: 800;
+    margin-top: 0.5rem;
+    text-transform: uppercase; 
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.26)
+}
+
+article{
+    width: 25rem; 
+    background-color: rgba(0, 0, 0, 0.082);
+    transition: transform 0.5s;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+article:hover{
+    transform: scale(1.02);
+}
+article img{
+    border: 0.5rem;
+    width: 100%;
+}
